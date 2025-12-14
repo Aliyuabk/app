@@ -1,0 +1,133 @@
+{% include 'header.html' %}
+
+<!-- Header -->
+<header id="header" class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="text-container fade-up">
+                    <h1 class="h1-large">
+                        Your learning journey starts here — simple, reliable, and designed for every student.
+                    </h1>
+                    <a class="btn-solid-lg page-scroll" href="#courses">
+                        Get started <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- end of header -->
+
+<!-- Courses Section -->
+<div id="courses" class="basic-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 fade-up">
+                <h2 class="h2-heading">Popular Courses</h2>
+                <p class="p-heading">
+                    Explore high-quality courses designed to take you from beginner to advanced level.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            {% if courses %}
+                {% for course in courses %}
+                    <div class="col-lg-4">
+                        <div class="text-box fade-up">
+                            <i class="fas fa-book"></i>
+
+                            <h4>{{ course.cname | upper }}</h4>
+
+                            <p>
+                                {{ course.description[:120] }}...
+                                <br>
+                                <strong>{{ course.price }}</strong>
+                                <br>
+                                <small>Duration: {{ course.month }}</small>
+                            </p>
+
+                            <center>
+                                <button>Enroll Now</button>
+                            </center>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-lg-12 text-center">
+                    <p>No courses available at the moment.</p>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Divider -->
+<div class="container"><div class="row"><div class="col-lg-12"><hr class="section-divider"></div></div></div>
+
+<!-- Pricing Section -->
+<div id="pricing" class="basic-2">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 fade-up">
+                <h2 class="h2-heading">Pricing</h2>
+                <p class="p-heading">
+                    Choose a plan that fits your learning goals. All plans include lifetime access and certification.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <!-- Web Dev Price -->
+            <div class="col-lg-4">
+                <div class="text-box fade-up">
+                    <i class="fas fa-laptop-code"></i>
+                    <h4>WEB DEVELOPMENT</h4>
+                    <p>
+                        Front-end + Back-end full course. Learn to build and deploy professional websites and web apps.
+                        <br><strong>₦15,000</strong>
+                    </p>
+                    <center><button>Enroll Now</button></center>
+                </div>
+            </div>
+
+            <!-- Programming Price -->
+            <div class="col-lg-4">
+                <div class="text-box fade-up">
+                    <i class="fas fa-terminal"></i>
+                    <h4>PROGRAMMING</h4>
+                    <p>
+                        Python, Java & C++ from beginner to advanced. Includes OOP, algorithms, and projects.
+                        <br><strong>₦10,000</strong>
+                    </p>
+                    <center><button>Enroll Now</button></center>
+                </div>
+            </div>
+
+            <!-- Web3 Price -->
+            <div class="col-lg-4">
+                <div class="text-box fade-up">
+                    <i class="fas fa-cube"></i>
+                    <h4>WEB3 & BLOCKCHAIN</h4>
+                    <p>
+                        Learn blockchain, smart contracts, and Web3 development. Build decentralized applications (DApps).
+                        <br><strong>₦20,000</strong>
+                    </p>
+                    <center><button>Enroll Now</button></center>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Divider -->
+<div class="container"><div class="row"><div class="col-lg-12"><hr class="section-divider"></div></div></div>
+
+{% include 'footer.html' %}

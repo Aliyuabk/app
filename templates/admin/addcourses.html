@@ -1,0 +1,90 @@
+{% include 'admin/header.html' %}
+{% include 'admin/sidebar.html' %}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row">
+        <div class="col-sm-12 col-xl-8">
+            <div class="bg-light rounded h-100 p-4">
+
+                <h6 class="mb-4">Add Course Form</h6>
+
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                <!-- Add Course Form -->
+                <form action="{{ url_for('addcourses') }}" method="POST">
+
+                    <div class="form-floating mb-3">
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            name="cname" 
+                            placeholder="Add Course"
+                            required
+                        >
+                        <label>Course Name</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            name="price" 
+                            placeholder="₦10,000"
+                            required
+                        >
+                        <label>Price</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            name="grant" 
+                            placeholder="Grant"
+                            required
+                        >
+                        <label>Grant</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <select class="form-select" name="month" required>
+                            <option value="">Select Duration</option>
+                            <option value="1 Month">One Month</option>
+                            <option value="2 Months">Two Months</option>
+                            <option value="3 Months">Three Months</option>
+                        </select>
+                        <label>Duration</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea 
+                            class="form-control" 
+                            name="description" 
+                            style="height: 150px;"
+                            required
+                        ></textarea>
+                        <label>Description</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary py-3 w-100 mb-4">
+                        Add Course <i class="fa fa-plus me-2"></i>
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'admin/footer.html' %}

@@ -1,0 +1,132 @@
+  <!-- Footer -->
+  <div class="footer bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="social-container">
+                    <span class="fa-stack">
+                        <a href="#your-link">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-facebook-f fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="#your-link">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-twitter fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="#your-link">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-pinterest-p fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="#your-link">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-instagram fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="#your-link">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-youtube fa-stack-1x"></i>
+                        </a>
+                    </span>
+                </div> <!-- end of social-container -->
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</div> <!-- end of footer -->  
+<!-- end of footer -->
+
+
+<!-- Copyright -->
+<div class="copyright bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <p class="p-small">Copyright © <a class="no-line" href="https://kowagurutech.ng">KowaGuru Technology</a></p>
+            </div> <!-- end of col -->
+        </div> <!-- enf of row -->
+    </div> <!-- end of container -->
+
+    
+    
+</div> <!-- end of copyright --> 
+<!-- end of copyright -->
+
+<!-- AUTH MODAL -->
+<div id="authModal" class="modal">
+    <div class="modal-content fade-up">
+        <span class="close">&times;</span>
+
+        <h3>Welcome Back</h3>
+        <p>Login or create an account to continue</p>
+
+        <div class="auth-box">
+            <button id="signinBtn" class="auth-btn">Sign In</button>
+            <button id="signupBtn" class="auth-btn outlined">Sign Up</button>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="../static/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+<script src="../static/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+<script src="../static/js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+<script src="../static/js/scripts.js"></script> <!-- Custom scripts -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = "running";
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+    
+        elements.forEach(el => observer.observe(el));
+    });
+    </script>
+    
+    <script>
+        // Get modal
+        const modal = document.getElementById("authModal");
+    
+        // Open modal when clicking any Enroll button
+        document.querySelectorAll("button").forEach(btn => {
+            if (btn.textContent.includes("Enroll Now")) {
+                btn.addEventListener("click", function() {
+                    modal.style.display = "block";
+                });
+            }
+        });
+    
+        // Close modal
+        document.querySelector(".close").onclick = function() {
+            modal.style.display = "none";
+        };
+    
+        // Click outside closes
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    
+        // Redirect buttons
+        document.getElementById("signinBtn").onclick = () => {
+            window.location.href = "/signin";
+        }
+    
+        document.getElementById("signupBtn").onclick = () => {
+            window.location.href = "/signup";
+        }
+    </script>
+    
+</body>
+</html>
